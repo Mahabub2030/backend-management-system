@@ -1,11 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes";
+import { JwtPayload } from "jsonwebtoken";
+import { envVars } from "../config/env";
 import AppError from "../errorHelpers/AppError";
 import { IsActive } from "../modules/user/user.interface";
 import { User } from "../modules/user/user.model";
+import { verifyToken } from "../utils/jwt";
 
 export const checkAuth =
-  () => async (req: Request, res: Response, next: NextFunction) => {
+  (...authRoles: string[]) =>
+  async (req: Request, res: Response, next: NextFunction) => {
     try {
       const accessToken = req.headers.authorization;
 
@@ -13,7 +17,12 @@ export const checkAuth =
         throw new AppError(403, "No Token Recieved");
       }
 
-      const isUserExist = await User.findOne();
+      const verifiedToken = verifyToken(
+        accessToken,
+        envVars.JWT_ACCESS_SECRET
+      ) as JwtPayload;
+
+      const isUserExist = await User.findOne({ email: verifiedToken.email });
 
       if (!isUserExist) {
         throw new AppError(httpStatus.BAD_REQUEST, "User does not exist");
@@ -34,6 +43,10 @@ export const checkAuth =
         throw new AppError(httpStatus.BAD_REQUEST, "User is deleted");
       }
 
+      if (!authRoles.includes(verifiedToken.role)) {
+        throw new AppError(403, "You are not permitted to view this route!!!");
+      }
+      req.user = verifiedToken;
       next();
     } catch (error) {
       console.log("jwt error", error);
