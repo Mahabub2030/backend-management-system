@@ -56,11 +56,6 @@ const updateUser = catchAsync(
       verifiedToken as JwtPayload
     );
 
-    // res.status(httpStatus.CREATED).json({
-    //     message: "User Created Successfully",
-    //     user
-    // })
-
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
