@@ -1,0 +1,7 @@
+node_modules
+.env
+<<<<<<< HEAD
+.env.local
+.env.*.local
+=======
+>>>>>>> 6735abf (added some code)
