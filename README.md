@@ -146,7 +146,7 @@ Protected routes using middleware
 
 Environment variable protection
 
-📌 Future Improvements
+## 📌 Future Improvements
 
 Refresh token system
 
@@ -158,30 +158,13 @@ Swagger API documentation
 
 Unit and integration testing
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome!
 Please fork the repository and submit a pull request.
 
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License.
 
 ---
-
-### ✅ How to Download & Use
-
-1. Open **VS Code / Notepad**
-2. Create a file named **`README.md`**
-3. Paste the content above
-4. Save it
-5. Push to GitHub 🚀
-
-If you want, I can also:
-
-- Customize it for **E-commerce / Admin Panel**
-- Add **API endpoint examples**
-- Add **Swagger documentation**
-- Improve it for **GitHub portfolio**
-
-Just tell me 👍
