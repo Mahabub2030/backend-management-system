@@ -22,7 +22,6 @@ export const checkAuth =
         envVars.JWT_ACCESS_SECRET
       ) as JwtPayload;
 
-      console.log(verifiedToken);
       const isUserExist = await User.findOne({ email: verifiedToken.email });
 
       if (!isUserExist) {
