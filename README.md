@@ -167,4 +167,8 @@ Please fork the repository and submit a pull request.
 
 This project is licensed under the MIT License.
 
+## 👨‍💻 Developer
+
+**Mahabub Alam** – Full Stack Developer
+
 ---
