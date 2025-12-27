@@ -7,7 +7,6 @@ import { Payment } from "../payment/payment.model";
 import { ISSLCommerz } from "../sslCommerz/sslCommerz.interface";
 import { SSLService } from "../sslCommerz/sslCommerz.service";
 import { Tour } from "../tour/tour.model";
-import { User } from "../user/user.model";
 import { BOOKING_STATUS, IBooking } from "./booking.interface";
 import { Booking } from "./booking.model";
 
@@ -24,14 +23,14 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
   session.startTransaction();
 
   try {
-    const user = await User.findById(userId);
+    // const user = await User.findById(userId);
 
-    if (!user?.phone || !user.address) {
-      throw new AppError(
-        httpStatus.BAD_REQUEST,
-        "Please Update Your Profile to Book a Tour."
-      );
-    }
+    // if (!user?.phone || !user.address) {
+    //   throw new AppError(
+    //     httpStatus.BAD_REQUEST,
+    //     "Please Update Your Profile to Book a Tour."
+    //   );
+    // }
 
     const tour = await Tour.findById(payload.tour).select("costFrom");
 
