@@ -20,7 +20,6 @@ const sendOTP = async (email: string, name: string) => {
   if (!user) {
     throw new AppError(404, "User not found");
   }
-
   if (user.isVerified) {
     throw new AppError(401, "You are already verified");
   }
@@ -47,7 +46,7 @@ const sendOTP = async (email: string, name: string) => {
 };
 
 const verifyOTP = async (email: string, otp: string) => {
-  // const user = await User.findOne({ email, isVerified: false })
+  // const user = await User.findOne({ email, isVerified: false });
   const user = await User.findOne({ email });
 
   if (!user) {
