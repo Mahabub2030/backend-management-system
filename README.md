@@ -124,6 +124,8 @@ npm install
 Development Mode
 npm run dev
 
+Live link:https://backend-management-system-j40bgd55k-mahabub2030s-projects.vercel.app/
+
 ## Production Mode
 
 npm run build
