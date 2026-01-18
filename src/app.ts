@@ -16,13 +16,22 @@ app.use(
     secret: envVars.EXPRESS_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-  })
+  }),
 );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      envVars.FRONTEND_URL,
+      "http://localhost:3000",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  }),
+);
 
 app.use("/api/v1", router);
 
