@@ -6,3 +6,7 @@ node_modules
 =======
 >>>>>>> 6735abf (added some code)
 .vercel
+node_modules
+.env
+.vercel
+.env*
