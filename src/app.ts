@@ -10,7 +10,7 @@ import notFound from "./app/middlewares/notFound";
 import { router } from "./app/routes";
 
 const app = express();
-
+// const PORT = envVars.PORT || 5000;
 app.use(
   expressSession({
     secret: envVars.EXPRESS_SESSION_SECRET,
